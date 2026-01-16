@@ -1,26 +1,29 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
+import { ReactNode } from "react";
 
-type NavItemProps = {
-  to: string
-  label: string
+interface NavItemProps {
+  to: string;
+  label: string;
+  icon?: ReactNode;
 }
 
-const NavItem = ({ to, label }: NavItemProps) => {
-  const { pathname } = useLocation()
-  const isActive = pathname === to
+const NavItem = ({ to, label, icon }: NavItemProps) => {
+  const location = useLocation();
+  const isActive = location.pathname === to;
 
   return (
     <Link
       to={to}
       className={`
-        transition-colors
-        hover:text-blue-700 dark:hover:text-blue-400
-        ${isActive ? 'text-blue-700 dark:text-blue-400 font-semibold' : ''}
+        flex items-center gap-2
+        hover:text-blue-500 transition
+        ${isActive ? "text-blue-500 font-semibold" : ""}
       `}
     >
-      {label}
+      {icon}
+      <span>{label}</span>
     </Link>
-  )
-}
+  );
+};
 
-export default NavItem
+export default NavItem;

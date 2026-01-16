@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NavItem from "../Common/NavItem";
+import {  FaBriefcase, FaHome, FaTools, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const [dark, setDark] = useState(() => {
@@ -32,19 +33,19 @@ const Navbar = () => {
         <h1 className="font-bold text-xl tracking-wide">My Portfolio</h1>
 
         <div className="flex items-center space-x-6 text-sm font-medium">
-          <NavItem to="/Home" label="Home" />
-          <NavItem to="/About" label="About" />
-          <NavItem to="/Experience" label="Experience" />
-          <NavItem to="/TechStack" label="Tech Stack" />
+          <NavItem to="/Home" label="Home" icon={<FaHome />} />
+          <NavItem to="/About" label="About" icon={<FaUser />} />
+          <NavItem to="/Experience" label="Experience" icon={<FaBriefcase />} />
+          <NavItem to="/TechStack" label="Tech Stack" icon={<FaTools />} />
 
           <button
             onClick={() => setDark((prev) => !prev)}
             className="
-              px-3 py-1.5 rounded-full text-xs font-semibold
-              bg-gray-200 text-gray-800
-              dark:bg-gray-700 dark:text-white
-              hover:opacity-80 transition
-            "
+      px-3 py-1.5 rounded-full text-xs font-semibold
+      bg-gray-200 text-gray-800
+      dark:bg-gray-700 dark:text-white
+      hover:opacity-80 transition
+    "
           >
             {dark ? "🌙 Dark" : "☀️ Light"}
           </button>
